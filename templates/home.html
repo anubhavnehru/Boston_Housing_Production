@@ -1,3 +1,124 @@
-<h1>
-Hello World
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            font-family: 'Arimo', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #333;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            grid-column: span 2;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .btn-large {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Boston House Price Prediction</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <label for="CRIM">CRIM:</label>
+            <input type="text" name="CRIM" required="required" />
+
+            <label for="ZN">ZN:</label>
+            <input type="text" name="ZN" required="required" />
+
+            <label for="INDUS">INDUS:</label>
+            <input type="text" name="INDUS" required="required" />
+
+            <label for="CHAS">CHAS:</label>
+            <input type="text" name="CHAS" required="required" />
+
+            <label for="NOX">NOX:</label>
+            <input type="text" name="NOX" required="required" />
+
+            <label for="RM">RM:</label>
+            <input type="text" name="RM" required="required" />
+
+            <label for="Age">Age:</label>
+            <input type="text" name="Age" required="required" />
+
+            <label for="DIS">DIS:</label>
+            <input type="text" name="DIS" required="required" />
+
+            <label for="RAD">RAD:</label>
+            <input type="text" name="RAD" required="required" />
+
+            <label for="TAX">TAX:</label>
+            <input type="text" name="TAX" required="required" />
+
+            <label for="PTRATIO">PTRATIO:</label>
+            <input type="text" name="PTRATIO" required="required" />
+
+            <label for="B">B:</label>
+            <input type="text" name="B" required="required" />
+
+            <label for="LSTAT">LSTAT:</label>
+            <input type="text" name="LSTAT" required="required" />
+
+            <button type="submit" class="btn btn-primary btn-large">Predict</button>
+        </form>
+    </div>
+    {{prediction_text}}
+</body>
+
+</html>
